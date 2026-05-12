@@ -1,15 +1,13 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
+import Listings from './pages/Listings';
 
-// Placeholders for other pages
-const Listings = () => <div className="min-h-screen p-10"><h1 className="text-3xl font-bold">Listings Page</h1></div>;
-const PropertyDetail = () => <div className="min-h-screen p-10"><h1 className="text-3xl font-bold">Property Detail Page</h1></div>;
-const Login = () => <div className="min-h-screen p-10"><h1 className="text-3xl font-bold">Login Page</h1></div>;
-const Dashboard = () => <div className="min-h-screen p-10"><h1 className="text-3xl font-bold">Dashboard</h1></div>;
+const PropertyDetail = () => <div className="min-h-screen p-10 pt-24"><h1 className="text-3xl font-bold">Property Detail Page</h1></div>;
+const Login = () => <div className="min-h-screen p-10 pt-24"><h1 className="text-3xl font-bold">Login Page</h1></div>;
+const Dashboard = () => <div className="min-h-screen p-10 pt-24"><h1 className="text-3xl font-bold">Dashboard</h1></div>;
 
 function App() {
   return (

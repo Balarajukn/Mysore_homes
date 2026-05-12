@@ -13,44 +13,47 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-lightGray font-sans">
-      {/* Hero Section */}
-      <section className="relative h-[450px] md:h-[550px] flex items-center justify-center bg-darkGray overflow-hidden">
+      {/* Hero Section — height scales with viewport */}
+      <section className="relative w-full min-h-[340px] h-[58vh] sm:h-[65vh] md:h-[72vh] lg:h-[80vh] xl:h-[85vh] max-h-[960px] flex items-center justify-center bg-darkGray overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img 
-            src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1920&q=80" 
-            alt="Mysuru Real Estate" 
+          <img
+            src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1920&q=80"
+            alt="Mysuru Real Estate"
             className="w-full h-full object-cover opacity-40"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-transparent" />
         </div>
-        
-        <div className="relative z-20 text-center px-4 w-full max-w-5xl mt-8 md:mt-10">
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 md:mb-6 drop-shadow-md">
-            Buy, Sell & Rent Properties in Mysuru
-          </h1>
-          <p className="text-sm md:text-xl lg:text-2xl text-gray-200 mb-6 md:mb-10 flex items-center justify-center gap-2 md:gap-3 font-medium flex-wrap">
-            <span className="bg-primary/90 text-white px-2 py-1 md:px-3 md:py-1 rounded text-xs md:text-base">Free Listing</span>
-            <span className="hidden sm:inline">&bull;</span>
-            <span className="text-primary-light text-xs md:text-base">Zero Brokerage</span>
-            <span className="hidden sm:inline">&bull;</span>
-            <span className="flex items-center text-xs md:text-base"><ShieldCheck size={16} className="mr-1 text-green-400 md:w-5 md:h-5"/> RERA-Verified</span>
-          </p>
-          
 
+        <div className="relative z-20 text-center px-4 w-full max-w-5xl mx-auto">
+          <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-3 sm:mb-4 md:mb-6 drop-shadow-lg leading-tight">
+            Buy, Sell &amp; Rent Properties<br className="hidden sm:block" /> in Mysuru
+          </h1>
+          <p className="text-xs sm:text-base md:text-xl lg:text-2xl text-gray-200 mb-4 sm:mb-6 md:mb-8 flex items-center justify-center gap-2 md:gap-3 font-medium flex-wrap">
+            <span className="bg-primary/90 text-white px-2 py-1 md:px-3 md:py-1 rounded text-xs md:text-sm">Free Listing</span>
+            <span className="hidden sm:inline text-gray-400">&bull;</span>
+            <span className="text-primary-light">Zero Brokerage</span>
+            <span className="hidden sm:inline text-gray-400">&bull;</span>
+            <span className="flex items-center gap-1">
+              <ShieldCheck size={14} className="text-green-400 sm:w-5 sm:h-5" /> RERA-Verified
+            </span>
+          </p>
         </div>
 
         {/* Post Requirement Floating Button */}
-        <div className="absolute bottom-4 right-4 md:bottom-10 md:right-10 z-30">
-          <Link to="/post-requirement" className="bg-primary text-white px-4 py-2 md:px-6 md:py-3 rounded-full font-bold shadow-[0_0_20px_rgba(184,134,11,0.6)] hover:scale-105 hover:bg-primary-dark transition-all flex items-center gap-1 md:gap-2 border-2 border-white/20 animate-pulse text-xs md:text-base">
-            <ClipboardEdit className="w-4 h-4 md:w-5 md:h-5" />
-            <span className="hidden sm:inline">Post The Requirement</span>
+        <div className="absolute bottom-3 right-3 sm:bottom-6 sm:right-6 md:bottom-10 md:right-10 z-30">
+          <Link
+            to="/post-requirement"
+            className="bg-primary text-white px-3 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3 rounded-full font-bold shadow-[0_0_20px_rgba(184,134,11,0.5)] hover:scale-105 hover:bg-primary-dark transition-all flex items-center gap-1.5 border-2 border-white/20 animate-pulse text-xs sm:text-sm md:text-base"
+          >
+            <ClipboardEdit className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5" />
+            <span className="hidden xs:inline sm:inline">Post The Requirement</span>
             <span className="sm:hidden">Post Req</span>
           </Link>
         </div>
       </section>
 
       {/* Search and Categories Section */}
-      <section className="container mx-auto px-4 -mt-16 md:-mt-20 relative z-30 mb-12">
+      <section className="container mx-auto px-4 -mt-14 sm:-mt-16 md:-mt-20 lg:-mt-24 relative z-30 mb-10 md:mb-12">
         <div className="bg-white rounded-2xl shadow-2xl max-w-4xl mx-auto border border-gray-100 overflow-hidden">
 
           {/* Tab Bar */}
@@ -163,6 +166,11 @@ const Home = () => {
           {highDemandProperties.map(property => (
             <PropertyCard key={property.id} property={property} />
           ))}
+        </div>
+        <div className="mt-6 text-center md:hidden">
+          <Link to="/listings" className="text-primary font-bold hover:text-primary-dark text-sm">
+            View All Projects &rarr;
+          </Link>
         </div>
       </section>
 
@@ -287,7 +295,7 @@ const Home = () => {
       <section className="py-10 md:py-16 container mx-auto px-4">
         <h2 className="text-xl md:text-3xl font-bold text-darkGray mb-6 md:mb-10 text-center">Filter by Rooms</h2>
         
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 md:gap-4">
           {bhkFilters.map((bhk, idx) => (
             <Link to="/listings" key={idx} className="relative h-28 md:h-40 rounded-xl overflow-hidden group shadow-sm hover:shadow-md transition-shadow">
               <img src={bhk.image} alt={bhk.label} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-90 group-hover:opacity-100" />
@@ -306,7 +314,7 @@ const Home = () => {
           <h2 className="text-xl md:text-3xl font-bold text-darkGray mb-2 text-center">Apartments, Villas, Plots & More</h2>
           <p className="text-sm md:text-base text-gray-500 text-center mb-8 md:mb-10 font-medium">Every property type across Mysuru — all free to browse</p>
           
-          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
             {propertyTypes.map((type, idx) => (
               <Link to="/listings" key={idx} className="bg-gray-50 rounded-xl md:rounded-2xl p-4 md:p-8 text-center border border-gray-100 hover:border-primary hover:bg-primary/5 transition-all duration-300 group">
                 <div className="w-12 h-12 md:w-16 md:h-16 mx-auto bg-white rounded-full flex items-center justify-center shadow-sm mb-3 md:mb-4 group-hover:bg-primary group-hover:text-white transition-colors text-primary">
@@ -325,7 +333,7 @@ const Home = () => {
       <section className="py-10 md:py-16 container mx-auto px-4">
         <h2 className="text-xl md:text-3xl font-bold text-darkGray mb-6 md:mb-10 text-center">Specific budget?</h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
           {budgetFilters.map((budget, idx) => (
             <Link to="/listings" key={idx} className="relative h-48 md:h-64 rounded-xl md:rounded-2xl overflow-hidden group shadow-md hover:shadow-xl transition-shadow">
               <img src={budget.img} alt={budget.label} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
